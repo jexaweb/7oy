@@ -1,131 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Productdata from "../components/Productdata";
 
-import { useFetch } from "../hooks/use.Fetch";
-
 function Recipes() {
-  let url = "https://json-api.uz/api/project/recipes/recipes";
-
-  const { data, isPending, error } = useFetch(url);
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("");
-  const [cookOpen, setCookOpen] = useState(false);
-  const [cookSelected, setCookSelected] = useState("");
+  const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
 
-  // select 1
-  function select1() {
-    setSelected("");
-    setIsOpen(false);
-  }
-  // select 2
-  function select2() {
-    setCookOpen(false);
-    setCookSelected("");
-  }
+  useEffect(() => {
+    fetch("https://json-api.uz/api/project/recipes/recipes")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch recipes");
+        return res.json();
+      })
+      .then((data) => setRecipes(data.data))
+      .catch((err) => setError(err.message))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  const filteredRecipes = recipes.filter(
+    (recipe) =>
+      recipe.title.toLowerCase().includes(search.toLowerCase()) ||
+      recipe.ingredients.some((ing) =>
+        ing.toLowerCase().includes(search.toLowerCase())
+      )
+  );
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <>
-      {/* hero */}
-      <section className="hero">
-        <div className="hero__container container">
-          <h1 className="hero__title title-text">
-            Explore our simple, healthy recipes
-          </h1>
-          <p className="hero__description">
-            Discover eight quick, whole-food dishes that fit real-life schedules
-            and taste amazing. Use the search bar to find a recipe by name or
-            ingredient, or simply scroll the list and let something delicious
-            catch your eye.
-          </p>
-        </div>
-      </section>
-      {/* products */}
-      <section className="products">
-        <div className="products__container container">
-          <div className="dropdown__container">
-            <div className="dropdown__wrapper">
-              <div className="dropdown">
-                <button
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="dropdown-btn"
-                >
-                  {`${selected && selected + " minutes"}` || "Max Prep Time"}
-                </button>
-                {isOpen && (
-                  <div className="dropdown-menu">
-                    {[0, 5, 10].map((time) => (
-                      <label key={time} className="dropdown-option">
-                        <input
-                          className="custom-radio"
-                          type="radio"
-                          name="time"
-                          value={time}
-                          checked={selected === time}
-                          onChange={() => setSelected(time)}
-                        />
-                        {`${time} minutes`}
-                      </label>
-                    ))}
-                    <button onClick={select1} className="clear-btn">
-                      Clear
-                    </button>
-                  </div>
-                )}
-              </div>
-              <div className="dropdown">
-                <button
-                  onClick={() => setCookOpen(!cookOpen)}
-                  className="dropdown-btn"
-                >
-                  {cookSelected !== ""
-                    ? `${cookSelected} minutes`
-                    : "Max Cook Time"}
-                </button>
-                {cookOpen && (
-                  <div className="dropdown-menu">
-                    {[0, 5, 10, 15, 20].map((time) => (
-                      <label key={time} className="dropdown-option">
-                        <input
-                          className="custom-radio"
-                          type="radio"
-                          name="cook"
-                          value={time}
-                          checked={cookSelected === time}
-                          onChange={() => setCookSelected(time)}
-                        />
-                        {`${time} minutes`}
-                      </label>
-                    ))}
-                    <button onClick={select2} className="clear-btn">
-                      Clear
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-            <input
-              onChange={(e) => setSearch(e.target.value)}
-              className="product__find-input"
-              type="text"
-              name="find"
-              placeholder="Search by name or ingredient…"
-            />
-          </div>
-          {isPending && <div className="loading">Loading...</div>}
-          {error && <div className="error">{error}</div>}
-          {data && (
-            <Productdata
-              data={data.data}
-              selected={selected}
-              cookSelected={cookSelected}
-              search={search}
-            />
-          )}
-        </div>
-      </section>
-    </>
+    <div>
+      <input
+        type="text"
+        placeholder="Search by name or ingredient…"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <Productdata data={filteredRecipes} />
+    </div>
   );
 }
 
