@@ -1,0 +1,371 @@
+/* mission */
+.mission {
+  margin-top: 8rem;
+  margin-bottom: 9.7rem;
+}
+.mission__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.mission__content {
+  width: 100%;
+  max-width: 510px;
+}
+.mission__label {
+  background-color: var(--orange-500);
+  color: var(--neutral-900);
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.6rem;
+
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+  display: inline-block;
+}
+.mission__title {
+  font-size: 4.7rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+  line-height: 120%;
+  margin-bottom: 2.4rem;
+  text-align: left;
+}
+.mission__text {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  margin-bottom: 1.6rem;
+  color: var(--neutral-800);
+}
+
+.values {
+  padding-top: 9.7rem;
+  margin-bottom: 9.6rem;
+}
+.values__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.values__title {
+  font-weight: 800;
+  line-height: 120%;
+  font-size: 4.8rem;
+  color: var(--neutral-900);
+}
+.values__list {
+  width: 100%;
+  max-width: 756px;
+}
+.values__item {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.values__heading {
+  font-family: "Nunito";
+  margin-bottom: 1.2rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 130%;
+  color: var(--neutral-900);
+}
+.values__text {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  color: var(--neutral-800);
+  margin-bottom: 4.8rem;
+  font-family: "Nunito Sans";
+}
+
+.philosophy {
+  padding-top: 9.6rem;
+  padding-bottom: 9.6rem;
+}
+.philosophy__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.philosophy__title {
+  font-size: 4.8rem;
+  width: 100%;
+  max-width: 376px;
+  font-weight: 800;
+  line-height: 120%;
+  color: var(--neutral-900);
+}
+.philosophy__list {
+  width: 100%;
+  max-width: 756px;
+}
+.philosophy__item {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.philosophy__heading {
+  margin-bottom: 1.2rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 100%;
+  font-family: "Nunito";
+  color: var(--neutral-900);
+}
+.philosophy__text {
+  font-family: "Nunito Sans";
+  margin-bottom: 4.8rem;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  color: var(--neutral-800);
+}
+
+.community {
+  padding-top: 9.6rem;
+  padding-bottom: 9.6rem;
+}
+.community__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.community__content {
+  width: 100%;
+  max-width: 400px;
+}
+.community__title {
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 120%;
+  margin-bottom: 2rem;
+  color: var(--neutral-900);
+}
+.community__text {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  margin-bottom: 1.2rem;
+  color: var(--neutral-800);
+}
+.community__list {
+  list-style: disc;
+}
+.community__item {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  margin-bottom: 1.2rem;
+  color: var(--neutral-800);
+  margin-left: 2.5rem;
+  line-height: 150%;
+}
+.community__img {
+  border-radius: 1.6rem;
+}
+.cta__inner {
+  margin-bottom: 4rem;
+}
+.cta__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 9.6rem 1rem;
+  background-image: url("/images/Call to Action.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 1.6rem;
+  text-align: center;
+}
+
+.cta__title {
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 100%;
+  color: var(--neutral-900);
+}
+
+.cta__description {
+  margin-top: 1.2rem;
+  font-family: "Nunito Sans";
+  margin-bottom: 4rem;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  color: var(--neutral-800);
+}
+
+.cta {
+  margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 1065px) {
+  .mission__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mission__content {
+    max-width: 100%;
+  }
+  .mission__text:last-child {
+    margin-bottom: 6.4rem;
+  }
+  .mission__img {
+    width: 100%;
+  }
+
+  .community__inner {
+    flex-direction: column;
+    align-items: start;
+    gap: 4rem;
+  }
+  .community__content {
+    max-width: 100%;
+  }
+  .community__img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .mission__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mission__content {
+    max-width: 100%;
+  }
+  .mission__text:last-child {
+    margin-bottom: 6.4rem;
+  }
+  .mission__img {
+    width: 100%;
+  }
+
+  .community__inner {
+    flex-direction: column;
+    align-items: start;
+    gap: 4rem;
+  }
+  .community__content {
+    max-width: 100%;
+  }
+  .community__img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .mission {
+    margin-top: 6.4rem;
+    margin-bottom: 8rem;
+  }
+
+  .values {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+  .values__inner {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .philosophy__inner {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .values__text {
+    margin-bottom: 3.2rem;
+  }
+
+  .philosophy__title {
+    max-width: 100%;
+  }
+
+  .community {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+  .cta__wrapper {
+    background-size: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mission {
+    margin-top: 4.8rem;
+    margin-bottom: 6.4rem;
+  }
+  .philosophy__inner {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .mission__text:last-child {
+    margin-bottom: 4rem;
+  }
+
+  .values {
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
+  }
+  .values__title {
+    font-size: 4rem;
+  }
+  .values__text {
+    margin-bottom: 2.4rem;
+  }
+
+  .community {
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
+  }
+  .community__title {
+    font-style: 4rem;
+  }
+
+  .cta__title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .mission {
+    margin-top: 4.8rem;
+    margin-bottom: 6.4rem;
+  }
+  .philosophy__inner {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .mission__text:last-child {
+    margin-bottom: 4rem;
+  }
+
+  .values {
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
+  }
+  .values__title {
+    font-size: 4rem;
+  }
+  .values__text {
+    margin-bottom: 2.4rem;
+  }
+
+  .community {
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
+  }
+  .community__title {
+    font-style: 4rem;
+  }
+
+  .cta__title {
+    font-size: 4rem;
+  }
+}

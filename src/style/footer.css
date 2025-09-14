@@ -1,0 +1,19 @@
+.footer {
+  padding-bottom: 4rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-container p {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--neutral-900);
+}
+.icon {
+  display: flex;
+  gap: 2.4rem;
+}
