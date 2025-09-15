@@ -1,0 +1,173 @@
+.single {
+  margin: 4rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.single__breadcrumb {
+  font-size: 1.4rem;
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+.single__breadcrumb-text {
+  font-weight: 600;
+  color: #333;
+}
+
+.single__container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.single__image {
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 580px;
+  object-fit: cover;
+}
+
+.single__details {
+  flex: 1;
+  min-width: 280px;
+}
+
+.single__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.single__overview {
+  font-size: 1.6rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.single__servings {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.single__servings p {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.single__section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  color: #333;
+}
+
+.single__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.single__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.single__list-item-text {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.more-recipes {
+  margin: 6rem;
+}
+
+.more-recipes__container {
+  width: 100%;
+}
+
+.more-recipes__title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #222;
+}
+
+.more-recipes__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+  padding: 0;
+  list-style: none;
+}
+
+.more-recipes__item {
+  border: 1px solid #e0e6e3;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.more-recipes__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.more-recipes__description {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.more-recipes__servings {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.more-recipes__servings p {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.3rem;
+}
+
+.more-recipes__button {
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+@media screen and (max-width: 850px) {
+  .single__container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .single__title {
+    font-size: 2rem;
+  }
+  .more-recipes__list {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

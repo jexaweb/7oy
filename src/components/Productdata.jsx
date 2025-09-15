@@ -1,44 +1,68 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useFetch } from "../hooks/use.Fetch";
 
-function Productdata({ data }) {
-  if (!data || data.length === 0) return <p>No recipes found</p>;
-
+function Productdata({ data, selected, cookSelected, search }) {
+  const [info, setInfo] = useState(null);
+  const {
+    data: filterProduct,
+    error,
+    isPending,
+  } = useFetch(
+    "https://json-api.uz/api/project/recipes/recipes?slug=" + search
+  );
   return (
-    <ul className="products__list">
-      {data.map((product) => (
-        <li key={product.id} className="product__item">
-          <picture>
-            {/* Mobil uchun kichik rasm */}
-            <source
-              media="(max-width: 500px)"
-              srcSet={product.image?.small || "/images/default.png"}
-            />
-            {/* Desktop uchun katta rasm */}
-            <img
-              src={product.image?.large || "/images/default.png"}
-              alt={product.title}
-              width={360}
-              height={300}
-              style={{ objectFit: "cover" }}
-            />
-          </picture>
+    <>
+      <ul className="meal-list container">
+        {data &&
+          data.map((product) => (
+            <li key={product.id} className="meal-card ">
+              <img
+                className="meal-image"
+                src={product.image.large}
+                alt={product.title}
+              />
+              <h4 className="meal-title">{product.title}</h4>
+              <p className="meal-summary">{product.overview}</p>
 
-          <h4>{product.title}</h4>
-          <p>{product.overview}</p>
+              <div className="meal-info">
+                <p>
+                  <img
+                    src="/images/icon-servings.svg"
+                    alt=""
+                    width="20"
+                    height="20"
+                  />
+                  Servings: {product.servings}
+                </p>
+                <p>
+                  <img
+                    src="/images/icon-prep-time.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                  />
+                  <span> Prep: ${product.prepMinutes}mins</span>
+                </p>
 
-          <div className="product__details">
-            <p>Servings: {product.servings}</p>
-            <p>Prep: {product.prepMinutes} min</p>
-            <p>Cook: {product.cookMinutes} min</p>
-          </div>
+                <p>
+                  <img
+                    src="/images/icon-cook-time.svg"
+                    alt=""
+                    width="20"
+                    height="20"
+                  />
+                  <span> Cook: {product.cookMinutes}mins</span>
+                </p>
+              </div>
 
-          <Link to={`/singleProduct/${product.id}`} className="product__button">
-            View Recipe
-          </Link>
-        </li>
-      ))}
-    </ul>
+              <button className="meal-btn">
+                <Link to={`/productSingle/${product.id}`}>View Recipe</Link>
+              </button>
+            </li>
+          ))}
+      </ul>
+    </>
   );
 }
 
