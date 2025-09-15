@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Recipes from "./pages/Recipes";
 
 import ProductSingle from "./components/ProductSingle";
-import MainLayout from "./layouts/MainLayout";
+import MainLayout from "./layouts/Mainlayout";
 
 function App() {
   const routes = createBrowserRouter([
