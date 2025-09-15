@@ -110,10 +110,7 @@ function ProductSingle() {
               prodData.data.map((product) => (
                 <li key={product.id} className="more-recipes__item">
                   <picture>
-                    <source
-                      media="(max-width: 500px)"
-                      srcSet={product.image.small}
-                    />
+                    <source media="(max-width: 500px)" srcSet={product.image} />
                     <img
                       className="more-recipes__img"
                       src={product.image.large}
