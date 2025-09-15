@@ -27,7 +27,7 @@ function ProductSingle() {
               <source media="(max-width: 500px)" srcSet={data.image.small} />
               <img
                 className="single__image"
-                src={data.image.large}
+                src={"." + data.image.large}
                 width="580"
                 height="580"
                 alt={data.title}
@@ -109,11 +109,15 @@ function ProductSingle() {
             {prodData &&
               prodData.data.map((product) => (
                 <li key={product.id} className="more-recipes__item">
+                  {console.log(product)}
                   <picture>
-                    <source media="(max-width: 500px)" srcSet={product.image} />
+                    <source
+                      media="(max-width: 500px)"
+                      srcSet={"." + product.image.small}
+                    />
                     <img
                       className="more-recipes__img"
-                      src={product.image.large}
+                      src={"." + product.image.large}
                       width={360}
                       height={300}
                       alt={product.title}
