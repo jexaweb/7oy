@@ -78,7 +78,7 @@ function Header() {
             </NavLink>
           </li>
           <button className="btn-mabil bl">
-            <Link>Browse recipes</Link>
+            <Link to={"/recipes"}>Browse recipes</Link>
           </button>
         </ul>
       )}
