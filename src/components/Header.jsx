@@ -18,17 +18,25 @@ function Header() {
       <div className={`nav-links ${menuOpen ? "open" : ""}`}>
         <ul>
           <li>
-            <NavLink onClick={() => setMenuOpen(false)} to="/">
+            <NavLink onClick={() => setMenuOpen(false)} to="/" className={"a"}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink onClick={() => setMenuOpen(false)} to="/about">
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/about"
+              className={"a"}
+            >
               About
             </NavLink>
           </li>
           <li>
-            <NavLink onClick={() => setMenuOpen(false)} to="/recipes">
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/recipes"
+              className={"a"}
+            >
               Recipes
             </NavLink>
           </li>
@@ -37,7 +45,7 @@ function Header() {
 
       <div className="navbar-end">
         <button className="btn btm-menu">
-          <Link>Browse recipes</Link>
+          <Link to={"/recipes"}>Browse recipes</Link>
         </button>
         <button className="btn-mobileEL" onClick={toggleMenu}>
           <img src="/images/icon-hamburger-menu.svg" alt="menu icon" />
@@ -47,21 +55,29 @@ function Header() {
       {menuOpen && (
         <ul className="nav-list-mobile">
           <li>
-            <NavLink onClick={() => setMenuOpen(false)} to="/">
+            <NavLink onClick={() => setMenuOpen(false)} to="/" className={"a"}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink onClick={() => setMenuOpen(false)} to="/about">
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/about"
+              className={"a"}
+            >
               About
             </NavLink>
           </li>
           <li>
-            <NavLink onClick={() => setMenuOpen(false)} to="/recipes">
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/recipes"
+              className={"a"}
+            >
               Recipes
             </NavLink>
           </li>
-          <button className="btn-mabil">
+          <button className="btn-mabil bl">
             <Link>Browse recipes</Link>
           </button>
         </ul>

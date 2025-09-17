@@ -29,7 +29,7 @@
 
 .single__details {
   flex: 1;
-  min-width: 280px;
+  min-width: 20px;
 }
 
 .single__title {
@@ -47,6 +47,7 @@
 
 .single__servings {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 2rem;
 }
@@ -101,7 +102,7 @@
 .more-recipes__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 3rem;
+  gap: 5rem;
   padding: 0;
   list-style: none;
 }

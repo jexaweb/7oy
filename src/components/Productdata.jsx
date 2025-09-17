@@ -1,68 +1,68 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useFetch } from "../hooks/use.Fetch";
 
-function Productdata({ data, selected, cookSelected, search }) {
-  const [info, setInfo] = useState(null);
-  const {
-    data: filterProduct,
-    error,
-    isPending,
-  } = useFetch(
-    "https://json-api.uz/api/project/recipes/recipes?slug=" + search
-  );
+function Productdata({ data = [], selected, cookSelected, search }) {
+  const filtered = data.filter((product) => {
+    const matchSearch = search
+      ? product.title.toLowerCase().includes(search.toLowerCase())
+      : true;
+
+    const minut = selected ? product.prepMinutes <= selected : true;
+
+    const minutMax = cookSelected ? product.cookMinutes <= cookSelected : true;
+
+    return matchSearch && minut && minutMax;
+  });
+
   return (
-    <>
-      <ul className="meal-list container">
-        {data &&
-          data.map((product) => (
-            <li key={product.id} className="meal-card ">
+    <ul className="meal-list container">
+      {filtered.length === 0 && <p className="malc">Malumot Topilmadi !</p>}
+      {filtered.map((product) => (
+        <li key={product.id} className="meal-card ">
+          <img
+            className="meal-image"
+            src={product.image.large}
+            alt={product.title}
+          />
+          <h4 className="meal-title">{product.title}</h4>
+          <p className="meal-summary">{product.overview}</p>
+
+          <div className="meal-info">
+            <p>
               <img
-                className="meal-image"
-                src={product.image.large}
-                alt={product.title}
+                src="/images/icon-servings.svg"
+                alt=""
+                width="20"
+                height="20"
               />
-              <h4 className="meal-title">{product.title}</h4>
-              <p className="meal-summary">{product.overview}</p>
+              Servings: {product.servings}
+            </p>
+            <p>
+              <img
+                src="/images/icon-prep-time.svg"
+                width="20"
+                height="20"
+                alt=""
+              />
+              <span> Prep: {product.prepMinutes}mins</span>
+            </p>
 
-              <div className="meal-info">
-                <p>
-                  <img
-                    src="/images/icon-servings.svg"
-                    alt=""
-                    width="20"
-                    height="20"
-                  />
-                  Servings: {product.servings}
-                </p>
-                <p>
-                  <img
-                    src="/images/icon-prep-time.svg"
-                    width="20"
-                    height="20"
-                    alt=""
-                  />
-                  <span> Prep: ${product.prepMinutes}mins</span>
-                </p>
+            <p>
+              <img
+                src="/images/icon-cook-time.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <span> Cook: {product.cookMinutes}mins</span>
+            </p>
+          </div>
 
-                <p>
-                  <img
-                    src="/images/icon-cook-time.svg"
-                    alt=""
-                    width="20"
-                    height="20"
-                  />
-                  <span> Cook: {product.cookMinutes}mins</span>
-                </p>
-              </div>
-
-              <button className="meal-btn">
-                <Link to={`/productSingle/${product.id}`}>View Recipe</Link>
-              </button>
-            </li>
-          ))}
-      </ul>
-    </>
+          <button className="meal-btn">
+            <Link to={`/productSingle/${product.id}`}>View Recipe</Link>
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }
 

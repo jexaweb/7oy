@@ -148,6 +148,10 @@
     transform: rotate(360deg);
   }
 }
+.malc {
+  font-size: 3rem;
+  color: var(--neutral-600);
+}
 
 .meal-list {
   display: grid;

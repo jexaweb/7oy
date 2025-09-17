@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -21,6 +22,11 @@ function About() {
             </p>
           </div>
           <div className="mission__image">
+            <img
+              src="../public/images/pattern-squiggle-2.svg"
+              alt=""
+              className="img-marc"
+            />
             <picture>
               <source
                 media="(max-width: 500px)"
@@ -210,7 +216,10 @@ function About() {
             <p className="cta__description">
               Hit the button, pick a recipe, and get dinner on the table—fast.
             </p>
-            <button className="btm-menu  cta__btn">Browse recipes</button>
+            <button className="btm-menu  cta__btn">
+              {" "}
+              <Link to={"/recipes"}>Browse recipes</Link>
+            </button>
           </div>
         </div>
       </section>

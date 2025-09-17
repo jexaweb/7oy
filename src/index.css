@@ -202,6 +202,24 @@ html {
   line-height: 150%;
   color: #293241;
 }
+.a {
+  text-decoration: none;
+  color: var(--neutral-900);
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding-bottom: 0.1rem;
+  border-bottom: 4px solid transparent;
+  transition: border-color 0.3s ease;
+}
+.a:hover {
+  border-bottom-color: #ff944d;
+}
+.active {
+  border-bottom-color: #ff944d;
+}
+.bl {
+  margin-top: 1rem;
+}
 
 /* Respnsib */
 @media (max-width: 900px) {
@@ -300,6 +318,13 @@ html {
     background-size: auto !important;
   }
 }
+@media (max-width: 660px) {
+  .nav-list-mobile {
+    left: 3rem !important;
+    right: 4rem !important;
+    width: 89% !important;
+  }
+}
 
 @media (max-width: 450px) {
   .title__mark {
@@ -323,6 +348,11 @@ html {
   }
   .word__container {
     flex-direction: column !important;
+  }
+  .nav-list-mobile {
+    left: 3rem !important;
+    right: 4rem !important;
+    width: 80% !important;
   }
 }
 
@@ -392,12 +422,9 @@ html {
   }
   .wordEL__wrapper {
     gap: 3.2rem;
+    background-position: center;
   }
 
-  .wordEL__wrapper {
-    padding: 8rem 1rem;
-    background: #e9ede8;
-  }
   .wordEl__title {
   }
   .wordEL__description {
@@ -428,18 +455,20 @@ html {
   margin-bottom: 1.2rem;
   line-height: 1;
 }
-.title__mark {
-  background-color: rgba(254, 158, 107, 0.46);
-  width: 270px;
-  height: 39px;
-  position: relative;
-  border-radius: 0.5rem;
-  z-index: 1;
-  top: 7rem;
-}
+
 .section__title-mark {
-  position: relative;
-  z-index: 2;
+  font-size: 7.2rem;
+  font-weight: 700;
+
+  display: inline-block;
+  box-shadow: inset 0 -25px 0 #ffd9c2;
+  border-radius: 8px;
+}
+
+.section__title-mark span {
+  background-color: #ffd9c2;
+  border-radius: 8px;
+  padding: 0 8px 10px 8px;
 }
 .section__description {
   font-family: "Nunito Sans";
@@ -561,7 +590,7 @@ html {
   justify-content: center;
   flex-direction: column;
   padding: 9.6rem 1rem 9.6rem 1rem;
-  background-image: url("/images/Call to Action.png");
+  background-image: url("assets/images/Call to Action.png");
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 1.6rem;

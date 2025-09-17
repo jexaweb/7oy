@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -6,7 +7,6 @@ function Home() {
       <section className="section">
         <div className="container section-continer">
           <h1 className="title">
-            <div className="title__mark"></div>
             <span className="section__title-mark  ">Healthy</span> meals, zero
             fuss
           </h1>
@@ -113,7 +113,9 @@ function Home() {
             <p className="wordEL__description">
               Hit the button, pick a recipe, and get dinner on the table—fast.
             </p>
-            <button className=" btm-menu ">Browse recipes</button>
+            <button className=" btm-menu ">
+              <Link to={"/recipes"}>Browse recipes</Link>
+            </button>
           </div>
         </div>
       </section>

@@ -24,7 +24,10 @@ function ProductSingle() {
 
           <div className="single__container">
             <picture>
-              <source media="(max-width: 500px)" srcSet={data.image.small} />
+              <source
+                media="(max-width: 500px)"
+                srcSet={"." + data.image.large}
+              />
               <img
                 className="single__image"
                 src={"." + data.image.large}

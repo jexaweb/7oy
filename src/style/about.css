@@ -177,7 +177,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 9.6rem 1rem;
-  background-image: url("/images/Call to Action.png");
+  background-image: url("/assets/images/Call to Action.png");
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 1.6rem;
@@ -200,11 +200,20 @@
   line-height: 150%;
   color: var(--neutral-800);
 }
-
+.img-marc {
+  position: absolute;
+  bottom: 10rem;
+  right: 2rem;
+}
 .cta {
   margin-bottom: 4rem;
 }
 
+@media screen and (max-width: 1300px) {
+  .img-marc {
+    display: none;
+  }
+}
 @media screen and (max-width: 1065px) {
   .mission__inner {
     flex-direction: column;
@@ -230,6 +239,9 @@
   }
   .community__img {
     width: 100%;
+  }
+  .img-marc {
+    display: none;
   }
 }
 
@@ -258,6 +270,9 @@
   }
   .community__img {
     width: 100%;
+  }
+  .img-marc {
+    display: none;
   }
 }
 
@@ -293,6 +308,10 @@
   }
   .cta__wrapper {
     background-size: auto;
+    background-position: center;
+  }
+  .img-marc {
+    display: none;
   }
 }
 
@@ -331,6 +350,9 @@
   .cta__title {
     font-size: 4rem;
   }
+  .img-marc {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -367,5 +389,8 @@
 
   .cta__title {
     font-size: 4rem;
+  }
+  .img-marc {
+    display: none;
   }
 }
