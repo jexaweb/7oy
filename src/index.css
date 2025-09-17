@@ -442,7 +442,7 @@ html {
 
 .section {
   margin-top: 8rem;
-  background-image: url("../public/images/pattern-squiggle-1.svg");
+  background-image: url("../images/pattern-squiggle-1.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom 15px right;
