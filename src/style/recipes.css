@@ -261,4 +261,8 @@
   .search-bar {
     width: 80vw;
   }
+  .meal-list {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }

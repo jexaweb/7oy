@@ -18,11 +18,15 @@ function Productdata({ data = [], selected, cookSelected, search }) {
       {filtered.length === 0 && <p className="malc">Malumot Topilmadi !</p>}
       {filtered.map((product) => (
         <li key={product.id} className="meal-card ">
-          <img
-            className="meal-image"
-            src={product.image.large}
-            alt={product.title}
-          />
+          <picture>
+            <source media="(max-width: 500px)" srcSet={product.image.large} />
+
+            <img
+              className="meal-image"
+              src={product.image.large}
+              alt={product.title}
+            />
+          </picture>
           <h4 className="meal-title">{product.title}</h4>
           <p className="meal-summary">{product.overview}</p>
 
