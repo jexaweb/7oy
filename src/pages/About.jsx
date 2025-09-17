@@ -23,7 +23,7 @@ function About() {
           </div>
           <div className="mission__image">
             <img
-              src="../public/images/pattern-squiggle-2.svg"
+              src="../images/pattern-squiggle-2.svg"
               alt=""
               className="img-marc"
             />
